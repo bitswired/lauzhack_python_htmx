@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "lauzhack-pictorial"
+version = "0.1.0"
+description = ""
+authors = ["jimzer <jimi.vaubien@protonmail.com>"]
+readme = "README.md"
+packages = [{ include = "lauzhack_pictorial", from = "." }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+litestar = { extras = ["jinja", "standard"], version = "^2.4.1" }
+uvicorn = "^0.24.0.post1"
+pydantic = "^2.5.2"
+pydantic-settings = "^2.1.0"
+python-dotenv = "^1.0.0"
+aiosql = "^9.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.6"
+doit = "^0.36.0"
+pytailwindcss = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
