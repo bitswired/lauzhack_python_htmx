@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block main %}
+
+<div class="flex flex-col gap-8 m-auto w-max">
+  <h1 class="h1 p-4 w-max m-auto">Live Stocks Udpate</h1>
+
+  <!-- stock price -->
+  <table class="table-fixed border-1 border-primary-500 border-collapse">
+    <thead class="text-left">
+      <tr class="bg-primary-500 border-1 border-black rounded-lg text-white">
+        <th class="px-4 w-[400px] py-2">Stock</th>
+        <th class="px-4 w-[200px] py-2">Price</th>
+        <th class="px-4 w-[200px] py-2">Change</th>
+      </tr>
+    </thead>
+    <!-- <tbody></tbody> with hxtrigger every seconds pull data and append -->
+    <tbody
+      hx-trigger="every 1s"
+      hx-get="/live-data/data"
+      hx-swap="beforeend"
+    ></tbody>
+  </table>
+</div>
+
+{% endblock %}

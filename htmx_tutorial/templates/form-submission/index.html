@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block main %}
+
+<div class="flex flex-col gap-8 m-auto w-full max-w-[600px]">
+  <h1 class="h1 p-4 w-max m-auto">Image Resizing</h1>
+
+  <form
+    class="flex flex-col gap-4 border-primary-500 border-2 rounded p-8"
+    hx-post="/form-submission/resize"
+    hx-target="#resize-output"
+    hx-swap="innerHTML"
+  >
+    <div class="flex flex-col gap-2">
+      <label for="url">Image Url</label>
+      <input
+        id="url"
+        hx-get="/form-submission/preview/image"
+        hx-trigger="keyup change delay:500ms"
+        hx-target="#image-preview"
+        hx-swap="innerHTML"
+        name="url"
+        type="text"
+        placeholder="Image URL"
+        class="w-full rounded p-4 shadow border-2 border-primary-100 focus:border-primary-500"
+      />
+      <div id="image-preview"></div>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="size">Size</label>
+
+      <input
+        id="size"
+        hx-get="/form-submission/preview/size"
+        hx-trigger="change delay:499ms"
+        hx-target="#size-preview"
+        hx-swap="innerHTML"
+        id="default-range"
+        name="size"
+        type="range"
+        min="0"
+        max="200"
+        value="100"
+        class="w-full h-2 rounded-lg appearance-none cursor-pointer bg-primary-200"
+      />
+      <div id="size-preview"></div>
+    </div>
+
+    <button class="btn btn-primary">Resize</button>
+  </form>
+
+  <div id="resize-output"></div>
+</div>
+
+{% endblock %}

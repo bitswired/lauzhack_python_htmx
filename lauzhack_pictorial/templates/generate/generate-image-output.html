@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-4">
+  <div class="w-full aspect-square overflow-hidden rounded-lg group">
+    <img
+      src="{{ url }}"
+      alt="{{ prompt }}"
+      class="rounded-lg object-cover group-hover:scale-110 transition-transform duration-100 ease-in-out"
+    />
+  </div>
+
+  <p>{{ prompt }}</p>
+</div>
+
+<a id="fire" hx-swap-oob="true" href="/generate"> Generate again </a>

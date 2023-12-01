@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Lauzhack Pictorial{% endblock %}</title>
+    <link rel="stylesheet" href="/static/output.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.7"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="">
+    <header
+      class="flex fixed top-0 left-0 h-[60px] bg-primary-500 w-screen items-center p-8 text-white text-sm"
+    >
+      <div class="w-1/3 font-black">HTMX Examples</div>
+
+      <nav class="w-2/3">
+        <ul class="flex gap-8 justify-end pr-16">
+          <li><a class="link line-clamp-1" href="/">Home</a></li>
+          <li>
+            <a class="link line-clamp-1" href="/live-data"
+              >#1 Live Data Update</a
+            >
+          </li>
+          <li>
+            <a class="link line-clamp-1" href="/form-submission"
+              >#2 Form Submission</a
+            >
+          </li>
+          <li>
+            <a class="link line-clamp-1" href="/filtering-sorting"
+              >#3 Filtering Sorting</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="mt-[100px] min-h-[calc(100vh-100px)]">
+      {% block main %}{% endblock %}
+    </main>
+  </body>
+</html>

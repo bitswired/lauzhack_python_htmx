@@ -1,0 +1,7 @@
+{%if error%}
+<div class="text-red-500">Invalid Image</div>
+{%else%}
+<div class="flex items-center justify-center">
+  <img src="{{ url }}" alt="image preview" class="rounded" />
+</div>
+{%endif%}

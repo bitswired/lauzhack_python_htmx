@@ -7,40 +7,15 @@ import aiosql
 import aiosqlite
 from litestar import Litestar
 
-from .models import User
+from .models import Generation, User
 
 queries = aiosql.from_path(Path(__file__).parent / "queries.sql", "aiosqlite")
 
-__all__ = ["db_conn", "db_provider", "models"]
-
-
-@asynccontextmanager
-async def db_conn() -> AsyncGenerator[aiosqlite.Connection, Any]:
-    conn = await aiosqlite.connect("db/db.sqlite3")
-    conn.row_factory = aiosqlite.Row
-
-    try:
-        yield conn, queries
-    finally:
-        await conn.close()
-
-
-@asynccontextmanager
-async def db_provider(app: Litestar) -> AsyncGenerator[None, None]:
-    conn = await aiosqlite.connect("db/db.sqlite3")
-    conn.row_factory = aiosqlite.Row
-
-    app.state.conn = conn
-    app.state.queries = queries
-
-    try:
-        yield
-    finally:
-        await conn.close()
+__all__ = ["repo_provider"]
 
 
 @dataclass
-class Repositopry:
+class Repository:
     conn: aiosqlite.Connection
     queries: Any
 
@@ -63,13 +38,24 @@ class Repositopry:
         await self.conn.commit()
         return user_id
 
+    async def create_generation(self, user_id: int, image_id: str, prompt: str) -> int:
+        generation_id = await self.queries.create_generation(
+            self.conn, user_id, image_id, prompt
+        )
+        await self.conn.commit()
+        return generation_id
+
+    async def get_user_generations(self, user_id: int) -> list[Generation]:
+        generations = await self.queries.get_user_generations(self.conn, user_id)
+        return [Generation(**generation) for generation in generations]
+
 
 @asynccontextmanager
 async def repo_provider(app: Litestar) -> AsyncGenerator[None, None]:
     conn = await aiosqlite.connect("db/db.sqlite3")
     conn.row_factory = aiosqlite.Row
 
-    app.state.repository = Repositopry(conn, queries)
+    app.state.repository = Repository(conn, queries)
 
     try:
         yield

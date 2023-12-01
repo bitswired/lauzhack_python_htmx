@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block main %}
+
+<h1 class="h1 p-4 w-max m-auto">Your Library</h1>
+
+<div class="flex flex-wrap gap-4 p-8 justify-center">
+  {% for g in generations %}
+
+  <div class="flex flex-col gap-4 w-1/4">
+    <div class="rounded-lg overflow-hidden group">
+      <img
+        src="/static/{{ g.image_id }}.png"
+        alt="{{ g.prompt }}"
+        class="group-hover:scale-110 object-cover transition-transform duration-100 ease-in-out"
+      />
+    </div>
+
+    <p>{{ g.prompt }}</p>
+  </div>
+
+  <p>{{ generation }}</p>
+
+  {% endfor %}
+</div>
+
+{% endblock %}

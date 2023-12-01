@@ -8,6 +8,8 @@ CREATE TABLE users(
 CREATE TABLE generations(
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     user_id INT NOT NULL,
+    image_id TEXT NOT NULL,
+    prompt TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 

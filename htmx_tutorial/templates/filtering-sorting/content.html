@@ -1,0 +1,12 @@
+<tbody id="content">
+  {% for client in clients %}
+  <tr class="border-1 border-black rounded-lg">
+    <td class="px-4 py-2">{{ client.name }}</td>
+    <td class="px-4 py-2">{{ client.age }}</td>
+    <td class="px-4 py-2">{{ client.email }}</td>
+    <td class="px-4 py-2">{{ client.city }}</td>
+    <td class="px-4 py-2">{{ client.country }}</td>
+    <td class="px-4 py-2">{{ client.phone }}</td>
+  </tr>
+  {% endfor %}
+</tbody>

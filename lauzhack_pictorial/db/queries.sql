@@ -30,3 +30,19 @@ from
     users
 where
     id = :id;
+
+-- name: create_generation<!
+-- Create a generation
+insert into
+    generations (user_id, image_id, prompt)
+values
+    (:user_id, :image_id, :prompt);
+
+-- name: get_user_generations
+-- Get all generations for a user
+select
+    *
+from
+    generations
+where
+    user_id = :user_id;

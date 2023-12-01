@@ -7,17 +7,20 @@ from litestar.exceptions import HTTPException
 from litestar.params import Body
 from litestar.response import Redirect, Template
 from litestar.status_codes import HTTP_401_UNAUTHORIZED
+from openai import AsyncClient
 
 from .db.models import User
-from .dtos import CreateUserDto
+from .dtos import CreateUserDto, GenerateImageDto
 from .state import AppState
+
+openai_client = AsyncClient()
 
 
 class MainController(Controller):
     path = "/"
 
     @get()
-    async def home_view(
+    async def index_view(
         self,
         request: Request[Optional[User], str, State],
     ) -> Template:
@@ -77,3 +80,89 @@ class MainController(Controller):
 
 
 main_router = Router(path="/", route_handlers=[MainController])
+
+
+import base64
+from pathlib import Path
+from uuid import uuid4
+
+import aiofiles
+
+
+async def save_image(b64_string: str) -> (str, str):
+    # Decode the base64 string
+    image_data = base64.b64decode(b64_string)
+
+    name = str(uuid4())
+    path = Path("static") / f"{name}.png"
+    # Open the file in async mode and save the content
+    async with aiofiles.open(path, "wb") as f:
+        await f.write(image_data)
+
+    return name, str(path)
+
+
+class GenerateController(Controller):
+    path = "/"
+
+    @get()
+    async def index_view(
+        self,
+        request: Request[Optional[User], str, State],
+    ) -> Template:
+        return Template(
+            template_name="generate/index.html", context={"user": request.user}
+        )
+
+    @post("image")
+    async def generate_image(
+        self,
+        request: Request[Optional[User], str, State],
+        data: Annotated[
+            GenerateImageDto, Body(media_type=RequestEncodingType.URL_ENCODED)
+        ],
+        state: AppState,
+    ) -> None:
+        print(data)
+
+        res = await openai_client.images.generate(
+            model="dall-e-3",
+            prompt=data.prompt,
+            n=1,
+            size="1024x1024",
+            response_format="b64_json",
+        )
+
+        # Save image
+        b64_string = res.data[0].b64_json
+        img_id, img_path = await save_image(b64_string)
+
+        # Add to database
+        await state.repository.create_generation(request.user.id, img_id, data.prompt)
+
+        return Template(
+            template_name="generate/generate-image-output.html",
+            context={"prompt": data.prompt, "url": f"/{img_path}"},
+        )
+
+
+generate_router = Router(path="/generate", route_handlers=[GenerateController])
+
+
+class LibraryRouter(Controller):
+    path = "/"
+
+    @get()
+    async def index_view(
+        self, request: Request[Optional[User], str, State], state: AppState
+    ) -> Template:
+        generations = await state.repository.get_user_generations(request.user.id)
+        print(generations)
+
+        return Template(
+            template_name="library/index.html",
+            context={"user": request.user, "generations": generations},
+        )
+
+
+library_router = Router(path="/library", route_handlers=[LibraryRouter])

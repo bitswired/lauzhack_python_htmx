@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block main %}
+
+<h1 class="h1 p-4 w-max m-auto">4 HTMX Examples</h1>
+
+<div class="flex flex-wrap p-16 gap-8 text-white justify-center m-auto">
+  <a
+    href="/live-data"
+    class="link flex flex-col gap-4 rounded-lg shadow-lg max-w-[300px] aspect-square bg-primary-500 p-4"
+  >
+    <h2 class="h2 p-4 font-bold">1. Live Data Update</h2>
+
+    <div class="flex flex-col gap-4 p-4">
+      <p>
+        This example shows how to update the content of a div with live data
+        from the server.
+      </p>
+    </div>
+  </a>
+
+  <a
+    href="/form-submission"
+    class="link flex flex-col gap-4 rounded-lg shadow-lg max-w-[300px] aspect-square bg-primary-500 p-4"
+  >
+    <h2 class="h2 p-4 font-bold">2. Live Form Submission</h2>
+
+    <div class="flex flex-col gap-4 p-4">
+      <p>
+        This example shows how to submit a form to the server and update the
+        content of a div with the response.
+      </p>
+    </div>
+  </a>
+
+  <a
+    href="/filtering-sorting"
+    class="link flex flex-col gap-4 rounded-lg shadow-lg max-w-[300px] aspect-square bg-primary-500 p-4"
+  >
+    <h2 class="h2 p-4 font-bold">3. Filtering and Sorting</h2>
+
+    <div class="flex flex-col gap-4 p-4">
+      <p>
+        This example shows how to filter and sort a table without reloading the
+        page.
+      </p>
+    </div>
+  </a>
+</div>
+
+{% endblock %}

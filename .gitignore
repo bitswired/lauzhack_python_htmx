@@ -175,6 +175,6 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
-static_tailwind/*
-!static_tailwind/.gitkeep
+static/*
+!static/.gitkeep
 .doit.db
