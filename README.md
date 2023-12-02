@@ -1,8 +1,20 @@
 # LauzHack Workshop: Python + HTMX
 
-## How to use
+Welcome to the Python + HTMX Workshop! This repository is your comprehensive guide to building scalable web applications using Litestar (a Python backend framework similar to FastAPI), HTMX (HTML Hypertext Markup extension language) and TailwindCSS (to style your app with ease).
 
-### HTMX Tutorial
+This workshop is designed for enthusiastic students participating in hackathons or those individuals keen to level up their web development skills.
+
+You will find two main components in this repository:
+
+## HTMX Tutorial
+
+This tutorial houses three basic examples that would guide you to understand and implement HTMX in your web applications effectively.
+
+- Live Data Update: Showcases how to fetch real-time stock data from the backend every second and append rows in a table.
+- Form Submission: Demonstrates submitting a form containing an image URL and a size, and getting the image resized without reloading the page. Plus, there's an automatic change trigger to query the backend for a size preview and image preview.
+- Filtering & Sorting: Here you'll encounter a form with fake client data, filter text and a select option. You'll learn how to make the form submit changes and replace the body when either of the inputs change.
+
+### Getting Started
 
 1. Clone the repository
 2. Install poetry
@@ -10,7 +22,20 @@
 4. Enter the env shell: `poetry shell`
 5. Run `doit -n 2 dev_tutorial`
 
-### Fully featured app
+## Pictorial: Fully Featured Application
+
+Pictorial is a sophisticated web application that combines the power of Python's asynchronous capabilities with htmx's dynamic front-end operations. It's designed to facilitate a seamless experience for users to generate and manage AI-created images with ease.
+
+Key Features:
+
+- Effortless User Registration: Offers streamlined signup capabilities, enabling new users to create accounts and access customized functionalities quickly.
+- Secure Authentication: Includes robust login/logout functionality with secure password handling, ensuring a secure and personalized user experience.
+- Interactive Content Creation: Utilizes OpenAI API for on-the-fly image generation based on user prompts, providing an engaging and interactive platform.
+- Personalized Libraries: Allows users to save and revisit their generated images in a personal library that's dynamically updated using htmx.
+
+The Pictorial Web Application exemplifies a modern approach to web development, merging backend and frontend technologies to create a responsive and interactive platform without relying on complex JavaScript frameworks.
+
+### Getting started
 
 1. Clone the repository
 2. Install poetry
