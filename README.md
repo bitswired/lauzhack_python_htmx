@@ -6,7 +6,7 @@ This workshop is designed for enthusiastic students participating in hackathons 
 
 You will find two main components in this repository:
 
-## HTMX Tutorial
+## 🎓 HTMX Tutorial
 
 This tutorial houses three basic examples that would guide you to understand and implement HTMX in your web applications effectively.
 
@@ -14,7 +14,7 @@ This tutorial houses three basic examples that would guide you to understand and
 - **Form Submission**: Demonstrates submitting a form containing an image URL and a size, and getting the image resized without reloading the page. Plus, there's an automatic change trigger to query the backend for a size preview and image preview.
 - **Filtering & Sorting**: Here you'll encounter a form with fake client data, filter text and a select option. You'll learn how to make the form submit changes and replace the body when either of the inputs change.
 
-### Getting Started
+### 🧑🏽‍💻 Getting Started
 
 1. Clone the repository
 2. Install poetry
@@ -22,9 +22,9 @@ This tutorial houses three basic examples that would guide you to understand and
 4. Enter the env shell: `poetry shell`
 5. Run `doit -n 2 dev_tutorial`
 
-## Pictorial: Fully Featured Application
+## 🚀 Pictorial: Fully Featured Application
 
-Pictorial is a sophisticated web application that combines the power of Python's asynchronous capabilities with htmx's dynamic front-end operations. It's designed to facilitate a seamless experience for users to generate and manage AI-created images with ease.
+Pictorial is a sophisticated web application that combines Python with HTMX in a realistic scenario. It allows people to singup, login, and generate images in parallel (up to 3 prompts) using OpenAI DALLE-3. Users can also visit their library containing all their image generations.
 
 Key Features:
 
@@ -35,7 +35,7 @@ Key Features:
 
 The Pictorial Web Application exemplifies a modern approach to web development, merging backend and frontend technologies to create a responsive and interactive platform without relying on complex JavaScript frameworks.
 
-### Getting started
+### 🧑🏽‍💻 Getting started
 
 1. Clone the repository
 2. Install poetry
