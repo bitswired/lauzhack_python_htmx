@@ -2,9 +2,10 @@
 
 Welcome to the Python + HTMX Workshop! This repository is your comprehensive guide to building scalable web applications using Litestar (a Python backend framework similar to FastAPI), HTMX (HTML Hypertext Markup extension language) and TailwindCSS (to style your app with ease).
 
-This workshop is designed for enthusiastic students participating in hackathons or those individuals keen to level up their web development skills.
-
 You will find two main components in this repository:
+
+- The Python + HTMX tutorial
+- Pictorial: a full-featured web application
 
 ## 🎓 HTMX Tutorial
 
@@ -22,7 +23,7 @@ This tutorial houses three basic examples that would guide you to understand and
 4. Enter the env shell: `poetry shell`
 5. Run `doit -n 2 dev_tutorial`
 
-## 🚀 Pictorial: Fully Featured Application
+## 🚀 Pictorial: Full-Featured Application
 
 Pictorial is a sophisticated web application that combines Python with HTMX in a realistic scenario. It allows people to singup, login, and generate images in parallel (up to 3 prompts) using OpenAI DALLE-3. Users can also visit their library containing all their image generations.
 
