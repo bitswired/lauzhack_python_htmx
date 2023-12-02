@@ -1,5 +1,7 @@
 # LauzHack Workshop: Python + HTMX
 
+Slides: https://www.canva.com/design/DAF1x9MSMW0/PR8s3_5UASnzGAR2-ZuFKQ/view?utm_content=DAF1x9MSMW0&utm_campaign=designshare&utm_medium=link&utm_source=editor#3
+
 Welcome to the Python + HTMX Workshop! This repository is your comprehensive guide to building scalable web applications using Litestar (a Python backend framework similar to FastAPI), HTMX (HTML Hypertext Markup extension language) and TailwindCSS (to style your app with ease).
 
 You will find two main components in this repository:
