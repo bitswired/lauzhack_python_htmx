@@ -10,9 +10,9 @@ You will find two main components in this repository:
 
 This tutorial houses three basic examples that would guide you to understand and implement HTMX in your web applications effectively.
 
-- Live Data Update: Showcases how to fetch real-time stock data from the backend every second and append rows in a table.
-- Form Submission: Demonstrates submitting a form containing an image URL and a size, and getting the image resized without reloading the page. Plus, there's an automatic change trigger to query the backend for a size preview and image preview.
-- Filtering & Sorting: Here you'll encounter a form with fake client data, filter text and a select option. You'll learn how to make the form submit changes and replace the body when either of the inputs change.
+- **Live Data Update**: Showcases how to fetch real-time stock data from the backend every second and append rows in a table.
+- **Form Submission**: Demonstrates submitting a form containing an image URL and a size, and getting the image resized without reloading the page. Plus, there's an automatic change trigger to query the backend for a size preview and image preview.
+- **Filtering & Sorting**: Here you'll encounter a form with fake client data, filter text and a select option. You'll learn how to make the form submit changes and replace the body when either of the inputs change.
 
 ### Getting Started
 
