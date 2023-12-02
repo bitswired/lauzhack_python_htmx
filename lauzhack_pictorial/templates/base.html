@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{% block title %}Lauzhack Pictorial{% endblock %}</title>
-    <link rel="stylesheet" href="/static/output.css">
-    <script src="https://unpkg.com/htmx.org@1.9.7" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="/static/output.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.7"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body class="">
-
+  <body class="">
     {% include 'header.html' %}
 
-    <main class="mt-[60px] min-h-[calc(100vh-60px)]">
-        {% block main %}{% endblock %}
+    <main class="mt-[100px] min-h-[calc(100vh-100px)]">
+      {% block main %}{% endblock %}
     </main>
 
-
     {% include 'footer.html' %}
-
-</body>
-
-
+  </body>
 </html>

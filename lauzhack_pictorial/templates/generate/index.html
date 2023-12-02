@@ -1,52 +1,48 @@
-{% extends "base.html" %}
-
-{% block main %}
-
-
-<br />
-
+{% extends "base.html" %} {% block main %}
 
 <h1 class="h1 w-max p-4 m-auto">Generate Images</h1>
 
 <br />
 <br />
 
-
 <section class="mx-4 p-8 bg-primary-200 rounded-lg w-max">
-    <h2 class="h2 max-w-[600px]">Infos</h2>
-    <p class="max-w-[600px]">Use this interface to experiment with prompt fast, you will generate 3 images with
-        different prompts
-        in
-        parallel. They wiil be saved in your library. This is helpful for prompt A/B testing, performing slight
-        variations
-        until you generate your dream image!</p>
+  <h2 class="h2 max-w-[600px]">Infos</h2>
+  <p class="max-w-[600px]">
+    Use this interface to experiment with prompt fast, you will generate 3
+    images with different prompts in parallel. They wiil be saved in your
+    library. This is helpful for prompt A/B testing, performing slight
+    variations until you generate your dream image!
+  </p>
 
-    <button id="fire" class="btn btn-primary m-auto mt-8">Generate</button>
-
+  <button id="fire" class="btn btn-primary m-auto mt-8">Generate</button>
 </section>
 
 <br />
 
 <section class="grid grid-cols-3 m-auto p-4 bg-slate-100 rounded-lg mx-4">
+  <h2 class="mx-4 h2 max-w-[600px]">Image Generation</h2>
+  <div></div>
+  <div></div>
 
-    <h2 class="mx-4 h2 max-w-[600px]">Image Generation</h2>
-    <div></div>
-    <div></div>
+  {% for i in range(0, 3) %}
+  <div class="flex flex-col gap-4 p-4">
+    <form
+      hx-post="/generate/image"
+      hx-trigger="click from:#fire"
+      hx-swap="outerHTML"
+      hx-indicator="closest div"
+    >
+      <input
+        name="prompt"
+        type="text"
+        placeholder="Prompt {{ i + 1 }} ..."
+        class="border-2 border-gray-300 p-2 rounded-md w-full"
+      />
+    </form>
 
-
-    {% for i in range(0, 3) %}
-    <div class="flex flex-col gap-4 p-4">
-        <form hx-post="/generate/image" hx-trigger="click from:#fire" hx-swap="outerHTML" hx-indicator="closest div">
-            <input name="prompt" type="text" placeholder="Prompt {{ i + 1 }} ..."
-                class="border-2 border-gray-300 p-2 rounded-md w-full">
-        </form>
-
-        <div class="htmx-indicator">
-            Loading ...
-        </div>
-    </div>
-    {% endfor %}
+    <div class="htmx-indicator">Loading ...</div>
+  </div>
+  {% endfor %}
 </section>
-
 
 {% endblock %}

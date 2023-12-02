@@ -24,6 +24,6 @@
   }
 
   .btn-primary {
-    @apply bg-primary-500 text-white;
+    @apply bg-primary-600 text-white;
   }
 }
