@@ -49,4 +49,4 @@ The Pictorial Web Application exemplifies a modern approach to web development, 
 7. Add to the `.env`: `DATABASE_URL=sqlite:db/db.sqlite3`
 8. Add to the `.env`: `OPENAI_API_KEY=<YOUR_API_KEY>`
 9. Run `doit -n 2 db_reset`
-10. Run `doit -n 2 db_reset`
+10. Run `doit -n 2 dev`
